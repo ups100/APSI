@@ -15,7 +15,24 @@
 \usepackage{capt-of}
 \usepackage{url}
 \usepackage{epstopdf}
+\usepackage{tabularx}
 \usepackage{enumitem}
+
+% % % % % % % % % zwiększenie możliwości zagnieżdżenia wyliczeń : http://tex.stackexchange.com/questions/41408/a-five-level-deep-list
+\setlistdepth{7}
+
+\newlist{myEnumerate}{enumerate}{7}
+\setlist[myEnumerate,1]{label*=\arabic*.}
+\setlist[myEnumerate,2]{label*=\arabic*.}
+\setlist[myEnumerate,3]{label*=\arabic*.}
+\setlist[myEnumerate,4]{label*=\arabic*.}
+\setlist[myEnumerate,5]{label*=\arabic*.}
+\setlist[myEnumerate,6]{label*=\arabic*.}
+\setlist[myEnumerate,7]{label*=\arabic*.}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%% Two counters to keep track of categories and 
+%% subcategories
+
 \usepackage{listings}
 \usepackage{color}
 \usepackage{lastpage}
