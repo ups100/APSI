@@ -80,4 +80,47 @@
 	\end{myEnumerate}
 \end{myEnumerate}
 \subsection{Wymagania niefunkcjonalne}
+
+
+\begin{myEnumerate}
+	\item \textbf{Bezpieczeństwo}
+	\begin{myEnumerate}
+		\item Przechowywanie danych użytkowników zgodnie z wymogami ustawy o ochronie danych osobowych.
+		\item Szyfrowanie danych wrażliwych dotyczących użytkowników zasobów.
+		\item Komunikacja z systemem z wykorzystaniem SSL.
+		\item Hasła użytkowników przetrzymywane w formacie bezpiecznym - w postaci wyniku funkcji skrótu hasła połączonego z losowo wygenerowaną solą.
+		\item Integracja z firmowym serwerem LDAP.
+	\end{myEnumerate}
+	\item \textbf{Dostępność}
+	\begin{myEnumerate}
+		\item Dostępność systemu na poziomie 99\%.
+	\end{myEnumerate}
+	\item \textbf{Niezawodnosć}
+	\begin{myEnumerate}
+		\item Możliwość wykonywania kopii zapasowych.
+		\item Możliwość zautomatyzowania procesu wykonywania kopii zapasowych.
+		\item Maksymalny czas restartu systemu 2h.
+		\item Możliwość odtworzenia systemu z kopii zapasowej w czasie poniżej 6h.
+		\item Transakcyjny charakter operacji.
+	\end{myEnumerate}
+	\item \textbf{Użyteczność}
+	\begin{myEnumerate}
+		\item Intuicyjny interfejs graficzny.
+		\item Wbudowana pomoc kontekstowa dla użytkowników systemu.
+		\item Przygotowanie materiałów szkoleniowych.
+		\item System dostępny w wersjach językowych: polskiej, koreańskiej.
+	\end{myEnumerate}
+	\item \textbf{Elastyczność}
+	\begin{myEnumerate}
+		\item Architektura systemu zapewnia możliwość dodawania nowych funkcji.
+		\item Architektura systemu zezwala na zintegrowanie go z innymi systemami.
+		\item Możliwość skalowania systemu.
+	\end{myEnumerate}
+	\item \textbf{Wydajność}
+	\begin{myEnumerate}
+		\item System przystosowany jest do równoczesnej pracy 100 pracowników.
+		\item Czas średniej odpowiedzi systemu na zapytanie powinien być krótszy niż 300 ms.
+	\end{myEnumerate}
+\end{myEnumerate}
+
 \subsection{Specyfikacja przypadków użycia - poziom ogólny}
