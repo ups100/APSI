@@ -33,6 +33,20 @@
 %% Two counters to keep track of categories and 
 %% subcategories
 
+% % % % % % % % % % % % % % % % % % table
+\usepackage{etoolbox}
+\newenvironment{tabularlist}[1]{%
+	\preto{\tabular}{\renewcommand{\item}{\label{#1:\thetblenum} &} \setcounter{tblenum}{0}}
+	\setlength{\extrarowheight}{.5\baselineskip}
+	\begin{tabular}}
+	{\end{tabular}}
+\newcounter{tblenum}
+\newlength{\tblenumlabelspace}
+\setlength{\tblenumlabelspace}{.75em}
+\newcolumntype{T}[1]{@{}>{\refstepcounter{tblenum}\thetblenum.}
+	r@{\hspace{\tblenumlabelspace}}p{#1\linewidth}}
+% % % % % % % % % % % % % % % % % table
+
 \usepackage{listings}
 \usepackage{color}
 \usepackage{lastpage}
