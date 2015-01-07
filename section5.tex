@@ -7,7 +7,7 @@
 \end{itemize}
 
 
-\subsection{PU1} \label{pu1}
+\subsection{PU1 Wyszukiwanie zasobów} \label{pu1}
 \myparagraph{Opis}
 Przypadek wyszukiwania zasobów za pomocą zadanych kryteriów przez użytkownika.
 
@@ -46,7 +46,9 @@ Brak połączenia z siecią.
 
 
 
-\subsection{PU2}
+\subsection{PU2 Obsługa sprzetowego}
+
+\subsubsection{PU2.1 Dodanie nowego sprzętu komputerowego do systemu}
 
 \myparagraph{Opis}
 Przypadek dodawania nowego sprzętu komputerowego do systemu katalogowego.
@@ -66,18 +68,23 @@ Użytkownik systemu.
 
 \myparagraph{Przebieg podstawowy}
 \begin{enumerate}
-\item \label{pu2:1} Aktor wybiera ikonę dodawania sprzętu komputerowego.
+\item \label{pu2.1:1} Aktor wybiera ikonę dodawania sprzętu komputerowego.
 \item System prezentuje okno dodawania sprzętu komputerowego.
 \item Aktor podaje dane dodawanego zasobu.
-\item \label{pu2:4} Aktor wciska przycisk ,,Dodaj''.
-\item System wyświetla potwierdzenie dodania sprzętu komputerowego do zasobu komputerowego.
+\item \label{pu2.1:4} Aktor wciska przycisk ,,Dodaj''.
+\item System wyświetla potwierdzenie dodania sprzętu komputerowego do systemu.
 \end{enumerate}
 
 \myparagraph{Alternatywne przebiegi zdarzeń}
 \begin{enumerate}
+\item Aktor nie posiada wystarczających uprawnień do dodania sprzętu komputerowego.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Krok \ref{pu2.1:1} jak w przebiegu podstawowym.
+		\item System wyświetla informację o brak wymaganych uprawnień.
+	\end{enumerate}
 \item Aktor podał niepoprawne lub niepełne dane sprzętu komputerowego.
 	\begin{enumerate}[label*=\arabic*.]
-		\item Kroki \ref{pu2:1} - \ref{pu2:4} jak w przebiegu podstawowym.
+		\item Kroki \ref{pu2.1:1} - \ref{pu2.1:4} jak w przebiegu podstawowym.
 		\item System wyświetla informację o konieczności poprawienia danych.
 	\end{enumerate}
 \end{enumerate}
@@ -87,7 +94,7 @@ Brak połączenia z siecią.
 
 
 
-\subsection{PU3}
+\subsubsection{PU2.2 Edycja informacji o sprzęcie komputerowym}
 
 \myparagraph{Opis}
 Przypadek edycji danych sprzętu komputerowego znajdującego się w systemie katalogowym.
@@ -108,11 +115,11 @@ Użytkownik systemu.
 
 \myparagraph{Przebieg podstawowy}
 \begin{enumerate}
-\item \label{pu3:1} Aktor wyszukuje sprzęt zgodnie z \ref{pu1}
-\item \label{pu3:2} Aktor wybiera sprzęt do edycji oraz wciska przycisk ,,Edytuj''.
+\item \label{pu2.2:1} Aktor wyszukuje sprzęt zgodnie z \ref{pu1}
+\item \label{pu2.2:2} Aktor wybiera sprzęt do edycji oraz wciska przycisk ,,Edytuj''.
 \item System prezentuje okno edycji danych sprzętu komputerowego.
 \item Aktor wprowadza nowe dane.
-\item \label{pu3:5} Aktor wciska przycisk ,,Zapisz''.
+\item \label{pu2.2:5} Aktor wciska przycisk ,,Zapisz''.
 \item System wyświetla potwierdzenie zmiany danych sprzętu komputerowego.
 \end{enumerate}
 
@@ -120,13 +127,443 @@ Użytkownik systemu.
 \begin{enumerate}
 \item Aktor nie posiada uprawnień do edycji danych sprzętu komputerowego.
 	\begin{enumerate}[label*=\arabic*.]
-		\item Kroki \ref{pu3:1} - \ref{pu3:2} jak w przebiegu podstawowym.
+		\item Kroki \ref{pu2.2:1} - \ref{pu2.2:2} jak w przebiegu podstawowym.
 		\item System wyświetla informację o braku uprawnień do edycji.
 	\end{enumerate}
 \item Aktor podał niepoprawne lub niepełne dane sprzętu komputerowego.
 	\begin{enumerate}[label*=\arabic*.]
-		\item Kroki \ref{pu3:1} - \ref{pu3:5} jak w przebiegu podstawowym.
+		\item Kroki \ref{pu2.2:1} - \ref{pu2.2:5} jak w przebiegu podstawowym.
 		\item System wyświetla informację o konieczności poprawienia danych.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}\
+Brak połączenia z siecią.
+
+\subsubsection{PU2.3 Usunięcie sprzętu komputerowego z systemu}
+
+\myparagraph{Opis}
+Przypadek użycia opisuje procedurę usunięcia sprzętu komputerowego z systemu katalogowego.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Sprzęt komputerowy istnieje w systemie katalogowym.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Sprzęt komputerowy został usunięty z systemu katalogowego.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu2.3:1} Aktor wyszukuje sprzęt zgodnie z \ref{pu1}
+\item \label{pu2.3:2} Aktor wybiera sprzęt do usunięcia oraz wciska przycisk ,,Usuń''.
+\item System wyświetla okno z prośbą o potwierdzenie wykonania operacji.
+\item Aktor potwierdza wykonanie operacji.
+\item System wyświetla potwierdzenie usunięcia sprzętu komputerowego z systemu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie posiada uprawnień do usunięcia sprzętu komputerowego z systemu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu2.3:1} - \ref{pu2.3:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do usunięcia sprzętu komputerowego.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}\
+Brak połączenia z siecią.
+
+\subsubsection{PU3.1 Dodanie nowego oprogramowania do systemu}
+
+\myparagraph{Opis}
+Przypadek użycia opisuje procedurę dodania nowego oprogramowania do systemu katalogowego.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Oprogramowanie (wraz z danymi instalacji) zostało zapisane w systemie katalogowym.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu3.1:1} Aktor wybiera ikonę dodawania oprogramowania.
+\item System prezentuje okno dodawania oprogramowania.
+\item Aktor podaje dane dodawanego zasobu wraz z informacjami na temat przeprowadzonych instalacji.
+\item \label{pu3.1:4} Aktor wciska przycisk ,,Dodaj''.
+\item System wyświetla potwierdzenie dodania oprogramowania do systemu katalogowego.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie posiada uprawnień do dodania oprogramowania.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Krok \ref{pu3.1:1} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do wykonania operacji dodania oprogramowania.
+	\end{enumerate}
+\item Aktor podał niepoprawne lub niepełne dane.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu3.1:1} - \ref{pu3.1:4} jak w przebiegu podstawowym.
+		\item System wyświetla informację o konieczności poprawienia danych.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsubsection{PU3.2 Edycja informacji oprogramowaniu}
+
+\myparagraph{Opis}
+Przypadek użycia opisuje procedurę edycji informacji dotyczących oprogramowania znajdującego się w systemie - możliwa jest zmiana podstawowych danych oraz edycja przeprowadzonych instalacji.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Oprogramowanie istnieje w systemie katalogowym.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Dane oprogramowania zostały zmienione.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu3.2:1} Aktor wyszukuje oprogramowanie zgodnie z \ref{pu1}
+\item \label{pu3.2:2} Aktor wybiera oprogramowanie do edycji oraz wciska przycisk ,,Edytuj''.
+\item System prezentuje okno edycji danych oprogramowania.
+\item Aktor wprowadza nowe dane.
+\item \label{pu3.2:5} Aktor wciska przycisk ,,Zapisz''.
+\item System wyświetla potwierdzenie zmiany danych oprogramowania.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie posiada uprawnień do edycji danych oprogramowania.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu3.2:1} - \ref{pu3.2:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do edycji.
+	\end{enumerate}
+\item Aktor podał niepoprawne lub niepełne dane oprogramowania.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu3.2:1} - \ref{pu3.2:5} jak w przebiegu podstawowym.
+		\item System wyświetla informację o konieczności poprawienia danych.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}\
+Brak połączenia z siecią.
+
+\subsubsection{PU3.3 Usunięcie oprogramowania z systemu}
+
+\myparagraph{Opis}
+Przypadek użycia opisuje procedurę usunięcia oprogramowania (wraz z danymi na temat przeprowadzonych instalacji) z systemu katalogowego.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Oprogramowanie istnieje w systemie katalogowym.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Oprogramowanie zostało usunięte z systemu katalogowego.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu3.3:1} Aktor wyszukuje sprzęt zgodnie z \ref{pu1}
+\item \label{pu3.3:2} Aktor wybiera oprogramowanie oraz wciska przycisk ,,Usuń''.
+\item System wyświetla okno z prośbą o potwierdzenie wykonania operacji.
+\item Aktor potwierdza wykonanie operacji.
+\item System wyświetla potwierdzenie usunięcia oprogramowania z systemu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie posiada uprawnień do usunięcia oprogramowania z systemu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu3.3:1} - \ref{pu3.3:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do usunięcia oprogramowania.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}\
+Brak połączenia z siecią.
+
+\subsubsection{PU4.1 Dodanie innego sprzętu, urządzeń lub wyposażenia do systemu}
+
+\myparagraph{Opis}
+Przypadek użycia opisuje procedurę dodania sprzętu, urządzeń lub wyposażenia do systemu.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Zasób (wraz z danymi instalacji) został zapisany w systemie katalogowym.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu4.1:1} Aktor wybiera ikonę dodawania zasobu.
+\item System prezentuje okno dodawania zasobu.
+\item Aktor podaje dane dodawanego zasobu.
+\item \label{pu4.1:4} Aktor wciska przycisk ,,Dodaj''.
+\item System wyświetla potwierdzenie dodania zasobu do systemu katalogowego.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie posiada uprawnień do dodania zasobu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Krok \ref{pu4.1:1} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do wykonania operacji dodania zasobu.
+	\end{enumerate}
+\item Aktor podał niepoprawne lub niepełne dane.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu4.1:1} - \ref{pu4.1:4} jak w przebiegu podstawowym.
+		\item System wyświetla informację o konieczności poprawienia danych.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsubsection{PU4.2 Edycja informacji o innym sprzęcie, urządzeniu lub wyposażeniu}
+
+\myparagraph{Opis}
+Przypadek użycia opisuje procedurę edycji informacji dotyczących ogólnych zasobów.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Zasób istnieje w systemie katalogowym.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Dane zasobu zostały zmienione.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu4.2:1} Aktor wyszukuje zasób zgodnie z \ref{pu1}
+\item \label{pu4.2:2} Aktor wybiera zasób do edycji oraz wciska przycisk ,,Edytuj''.
+\item System prezentuje okno edycji danych zasobu.
+\item Aktor wprowadza nowe dane.
+\item \label{pu4.2:5} Aktor wciska przycisk ,,Zapisz''.
+\item System wyświetla potwierdzenie zmiany danych zasobu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie posiada uprawnień do edycji danych zasobu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu4.2:1} - \ref{pu4.2:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do edycji.
+	\end{enumerate}
+\item Aktor podał niepoprawne lub niepełne dane oprogramowania.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu4.2:1} - \ref{pu4.2:5} jak w przebiegu podstawowym.
+		\item System wyświetla informację o konieczności poprawienia danych.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}\
+Brak połączenia z siecią.
+
+\subsubsection{PU4.3 Usunięcie innego sprzętu, urządzenia lub wyposażenia z systemu}
+
+\myparagraph{Opis}
+Przypadek użycia opisuje procedurę usunięcia zasobu (ogólnego typu) z systemu katalogowego.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Zasób istnieje w systemie katalogowym.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Zasób został usunięty z systemu katalogowego.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu4.3:1} Aktor wyszukuje zasób zgodnie z \ref{pu1}
+\item \label{pu4.3:2} Aktor wybiera zasób oraz wciska przycisk ,,Usuń''.
+\item System wyświetla okno z prośbą o potwierdzenie wykonania operacji.
+\item Aktor potwierdza wykonanie operacji.
+\item System wyświetla potwierdzenie usunięcia zasobu z systemu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie posiada uprawnień do usunięcia zasobu z systemu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu4.3:1} - \ref{pu4.3:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do usunięcia zasobu.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}\
+Brak połączenia z siecią.
+
+\subsubsection{PU5.1 Dodanie nowego czasopisma lub zasobu literaturowego do systemu}
+
+\myparagraph{Opis}
+Przypadek użycia opisuje procedurę dodania czasopisma bądź zasobu literaturowego do systemu.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Dane czasopisma lub zasobu literackiego zostały zapisane w systemie katalogowym.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu5.1:1} Aktor wybiera ikonę dodawania czasopisma/zasobu literaturowego.
+\item System prezentuje okno dodawania zasobu.
+\item Aktor podaje dane dodawanego zasobu.
+\item \label{pu5.1:4} Aktor wciska przycisk ,,Dodaj''.
+\item System wyświetla potwierdzenie dodania zasobu do systemu katalogowego.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie posiada uprawnień do dodania zasobu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Krok \ref{pu5.1:1} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do wykonania operacji dodania zasobu.
+	\end{enumerate}
+\item Aktor podał niepoprawne lub niepełne dane.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu5.1:1} - \ref{pu5.1:4} jak w przebiegu podstawowym.
+		\item System wyświetla informację o konieczności poprawienia danych.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsubsection{PU5.2 Edycja informacji o czasopiśmie lub zasobie literaturowym}
+
+\myparagraph{Opis}
+Przypadek użycia opisuje procedurę edycji informacji dotyczących czasopisma bądź zasobu literaturowego.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Czasopismo/zasób literaturowy istnieje w systemie katalogowym.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Dane zasobu zostały zmienione.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu5.2:1} Aktor wyszukuje zasób zgodnie z \ref{pu1}
+\item \label{pu5.2:2} Aktor wybiera zasób do edycji oraz wciska przycisk ,,Edytuj''.
+\item System prezentuje okno edycji danych zasobu.
+\item Aktor wprowadza nowe dane.
+\item \label{pu5.2:5} Aktor wciska przycisk ,,Zapisz''.
+\item System wyświetla potwierdzenie zmiany danych zasobu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie posiada uprawnień do edycji danych zasobu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu5.2:1} - \ref{pu5.2:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do edycji.
+	\end{enumerate}
+\item Aktor podał niepoprawne lub niepełne dane oprogramowania.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu5.2:1} - \ref{pu5.2:5} jak w przebiegu podstawowym.
+		\item System wyświetla informację o konieczności poprawienia danych.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}\
+Brak połączenia z siecią.
+
+\subsubsection{PU5.3 Usunięcie czasopisma lub zasobu literaturowego z systemu}
+
+\myparagraph{Opis}
+Przypadek użycia opisuje procedurę usunięcia czasopisma/zasobu literaturowego z systemu katalogowego.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Czasopismo/zasób literaturowy istnieje w systemie katalogowym.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Czasopismo/zasób literaturowy został usunięty z systemu katalogowego.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu5.3:1} Aktor wyszukuje zasób zgodnie z \ref{pu1}
+\item \label{pu5.3:2} Aktor wybiera zasób oraz wciska przycisk ,,Usuń''.
+\item System wyświetla okno z prośbą o potwierdzenie wykonania operacji.
+\item Aktor potwierdza wykonanie operacji.
+\item System wyświetla potwierdzenie usunięcia zasobu z systemu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie posiada uprawnień do usunięcia zasobu z systemu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu5.3:1} - \ref{pu5.3:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do usunięcia zasobu.
 	\end{enumerate}
 \end{enumerate}
 
