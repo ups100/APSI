@@ -1,5 +1,134 @@
 \section{Specyfikacja przypadków użycia - poziom rozszerzony}
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
 
 \subsection{Aktorzy}
-\subsection{PU1..}
-\subsection{PU2..}
+\begin{itemize}
+\item Użytkownik systemu
+\end{itemize}
+
+
+\subsection{PU1} \label{pu1}
+\myparagraph{Opis}
+Przypadek wyszukiwania zasobów za pomocą zadanych kryteriów przez użytkownika.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+Przypadek użycia nie wpływa na stan systemu.
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu1:f} Aktor wybiera ikonę wyszukiwania zasobów.
+\item \label{pu1:s}System prezentuje okno wyszukiwania zasobów zawierające sekcję podawania kryteriów.
+\item Aktor wprowadza kryteria wyszukiwania.
+\item Aktor wciska przycisk ,,Wyszukaj''.
+\item System prezentuje wyniki wyszukiwania.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie podał kryteriów wyszukiwania
+	\begin{enumerate}[label*=\arabic*.]
+	\item Kroki \ref{pu1:f} - \ref{pu1:s} jak w przebiegu podstawowym.
+	\item Aktor wciska przycisk ,,Wyszukaj''.
+	\item System wyświetla informację o konieczności podania kryteriów wyszukiwania.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+
+
+\subsection{PU2}
+
+\myparagraph{Opis}
+Przypadek dodawania nowego sprzętu komputerowego do systemu katalogowego.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Do systemu katalogowego został dodany nowy sprzęt komputerowy.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu2:1} Aktor wybiera ikonę dodawania sprzętu komputerowego.
+\item System prezentuje okno dodawania sprzętu komputerowego.
+\item Aktor podaje dane dodawanego zasobu.
+\item \label{pu2:4} Aktor wciska przycisk ,,Dodaj''.
+\item System wyświetla potwierdzenie dodania sprzętu komputerowego do zasobu komputerowego.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor podał niepoprawne lub niepełne dane sprzętu komputerowego.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu2:1} - \ref{pu2:4} jak w przebiegu podstawowym.
+		\item System wyświetla informację o konieczności poprawienia danych.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+
+
+\subsection{PU3}
+
+\myparagraph{Opis}
+Przypadek edycji danych sprzętu komputerowego znajdującego się w systemie katalogowym.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Sprzęt komputerowy istnieje w systemie katalogowym.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Dane sprzętu komputerowego zostały zmienione.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+\item \label{pu3:1} Aktor wyszukuje sprzęt zgodnie z \ref{pu1}
+\item \label{pu3:2} Aktor wybiera sprzęt do edycji oraz wciska przycisk ,,Edytuj''.
+\item System prezentuje okno edycji danych sprzętu komputerowego.
+\item Aktor wprowadza nowe dane.
+\item \label{pu3:5} Aktor wciska przycisk ,,Zapisz''.
+\item System wyświetla potwierdzenie zmiany danych sprzętu komputerowego.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+\item Aktor nie posiada uprawnień do edycji danych sprzętu komputerowego.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu3:1} - \ref{pu3:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do edycji.
+	\end{enumerate}
+\item Aktor podał niepoprawne lub niepełne dane sprzętu komputerowego.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu3:1} - \ref{pu3:5} jak w przebiegu podstawowym.
+		\item System wyświetla informację o konieczności poprawienia danych.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}\
+Brak połączenia z siecią.
