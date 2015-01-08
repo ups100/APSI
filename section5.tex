@@ -46,8 +46,7 @@ Brak połączenia z siecią.
 
 
 
-\subsection{PU2 Obsługa sprzetowego}
-
+\subsection{PU2 Obsługa sprzetu kopmuterowego} \label{pu2}
 \subsubsection{PU2.1 Dodanie nowego sprzętu komputerowego do systemu}
 
 \myparagraph{Opis}
@@ -180,7 +179,8 @@ Użytkownik systemu.
 \myparagraph{Sytuacje wyjątkowe}\
 Brak połączenia z siecią.
 
-\subsubsection{PU3.1 Dodanie nowego oprogramowania do systemu}
+\subsection{PU3 Obsługa oprogramowania} \label{pu3}
+\subsubsection{PU3.1 Dodanie nowego oprogramowania}
 
 \myparagraph{Opis}
 Przypadek użycia opisuje procedurę dodania nowego oprogramowania do systemu katalogowego.
@@ -310,6 +310,7 @@ Użytkownik systemu.
 \myparagraph{Sytuacje wyjątkowe}\
 Brak połączenia z siecią.
 
+\subsection{PU4 Obsługa innego sprzętu, urządzeń lub wyposażenia} \label{pu4}
 \subsubsection{PU4.1 Dodanie innego sprzętu, urządzeń lub wyposażenia do systemu}
 
 \myparagraph{Opis}
@@ -440,6 +441,7 @@ Użytkownik systemu.
 \myparagraph{Sytuacje wyjątkowe}\
 Brak połączenia z siecią.
 
+\subsection{PU5 Obsługa czasopisma lub zasobu literaturowego} \label{pu5}
 \subsubsection{PU5.1 Dodanie nowego czasopisma lub zasobu literaturowego do systemu}
 
 \myparagraph{Opis}
@@ -568,4 +570,583 @@ Użytkownik systemu.
 \end{enumerate}
 
 \myparagraph{Sytuacje wyjątkowe}\
+Brak połączenia z siecią.
+
+
+\subsection{PU6 Współpraca z modułem rejestru pracowników} \label{pu6}
+\subsubsection{PU6.1 Zapisanie informacji o osobie odpowiedzialnej za zasób}
+\myparagraph{Opis}
+Przypadek zapisywania informacji o osobie, która odpowiada za zasób.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Osoba odpowiedzialna za zasób znajduje się w bazie pracowników.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Do systemu katalogowego została zapisana informacja o osobie odpowiedzialnej za zasób.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu6.1:1} Aktor wyszukuje zasób zgodnie z \ref{pu1}
+	\item \label{pu6.1:2} Aktor wybiera sprzęt oraz wciska przycisk ,,Edytuj''.
+	\item System prezentuje okno edycji zasobu.
+	\item Aktor wybiera pracownika odpowiedzialnego za zasób ze zbioru wszystkich pracowników, mających uprawnienia do bycia odpowiedzialnym nad typem edytowanego zasobu.
+	\item Aktor wciska przycisk „Zapisz”.
+	\item System wyświetla potwierdzenie zmiany danych zasobu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień do edycji zasobu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu6.1:1} - \ref{pu6.1:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do edycji.
+	\end{enumerate}
+\end{enumerate}
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsubsection{PU6.2 Zapisanie informacji o użytkowniku konkretnego zasobu}
+\myparagraph{Opis}
+Przypadek zapisywania informacji o użytkownikach zasobu.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Osoba odpowiedzialna za zasób znajduje się w bazie pracowników.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Do systemu katalogowego została zapisana informacja o osobie użytkującej zasób.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu6.2:1} Aktor wyszukuje sprzęt zgodnie z \ref{pu1}
+	\item \label{pu6.2:2} Aktor wybiera sprzęt oraz wciska przycisk ,,Edytuj''.
+	\item System prezentuje okno edycji zasobu.
+	\item Aktor modyfikuje listę użytkowników użytkujących dany zasób.
+	\item Aktor wciska przycisk „Zapisz”.
+	\item System wyświetla potwierdzenie zmiany danych zasobu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień do edycji zasobu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu6.2:1} - \ref{pu6.2:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do edycji.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsection{PU7 Obliczanie statystyk} \label{pu7}
+\subsubsection{PU7.1 Prezentacja zakupów konkretnych zasobów w poszczególnych latach}
+\myparagraph{Opis}
+Przypadek prezentowania statystyk dotyczących ilości zakupów zasobów wybranych przez użytkownika w latach wybranych przez użytkownika.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Użytkownik otrzymuje prezentacje statystyk dotyczących zakupów zasobów w latach.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu7.1:1} Aktor wybiera ikone generowania statystyk.
+	\item System prezentuje dostępne typy raportów.
+	\item \label{pu7.2:2} Aktor wybiera prezentacje statystyk dotyczących zakupów zasobów w latach.
+	\item System prezentuje okno parametrów raportu.
+	\item Aktor wybiera zasoby dla których mają być obliczane statystyki oraz wybiera lata dla których mają być wygenerowany raport.
+	\item Aktor wciska przycisk „Generuj”.
+	\item System wyświetla prezentacje statystyk.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień generowania raportów.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Krok \ref{pu6.1:1} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do generowania raportów.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsubsection{PU7.2.1 Prezentacja ilości zakupionych zasobów w poszczególnych działach}
+\myparagraph{Opis}
+Przypadek prezentowania statystyk dotyczących ilości zakupów zasobów wybranych przez użytkownika w działach wybranych przez użytkownika.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Użytkownik otrzymuje prezentacje statystyk dotyczących zakupów zasobów w działach.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu7.2.1:1} Aktor wybiera ikone generowania statystyk.
+	\item System prezentuje dostępne typy raportów.
+	\item \label{pu7.2.1:2} Aktor wybiera prezentacje statystyk dotyczących zakupów zasobów w działach.
+	\item System prezentuje okno parametrów raportu.
+	\item Aktor wybiera zasoby dla których mają być obliczane statystyki oraz wybiera działy dla których mają być wygenerowany raport.
+	\item Aktor wciska przycisk „Generuj”.
+	\item System wyświetla prezentacje statystyk.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień generowania raportów.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Krok \ref{pu6.1:1} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do generowania raportów.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsubsection{PU7.2.2 Prezentacja ilości używanych zasobów w poszczególnych działach}
+\myparagraph{Opis}
+Przypadek prezentowania statystyk dotyczących ilości używanych zasobów wybranych przez użytkownika w działach wybranych przez użytkownika.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Użytkownik otrzymuje prezentacje statystyk dotyczących użycia zasobów w działach.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu7.2.2:1} Aktor wybiera ikone generowania statystyk.
+	\item System prezentuje dostępne typy raportów.
+	\item \label{pu7.2.2:2} Aktor wybiera prezentacje statystyk dotyczących użycia zasobów w działach.
+	\item System prezentuje okno parametrów raportu.
+	\item Aktor wybiera zasoby dla których mają być obliczane statystyki oraz wybiera działy dla których mają być wygenerowany raport.
+	\item Aktor wciska przycisk „Generuj”.
+	\item System wyświetla prezentacje statystyk.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień generowania raportów.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Krok \ref{pu6.1:1} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do generowania raportów.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsubsection{PU7.2.3 Prezentacja ilości napraw zasobów w poszczególnych działach}
+\myparagraph{Opis}
+Przypadek prezentowania statystyk dotyczących ilości napraw zasobów wybranych przez użytkownika w działach wybranych przez użytkownika.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Użytkownik otrzymuje prezentacje statystyk dotyczących napraw zasobów w działach.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu7.2.3:1} Aktor wybiera ikone generowania statystyk.
+	\item System prezentuje dostępne typy raportów.
+	\item \label{pu7.2.3:2} Aktor wybiera prezentacje statystyk dotyczących napraw zasobów w działach.
+	\item System prezentuje okno parametrów raportu.
+	\item Aktor wybiera zasoby dla których mają być obliczane statystyki oraz wybiera działy dla których mają być wygenerowany raport.
+	\item Aktor wciska przycisk „Generuj”.
+	\item System wyświetla prezentacje statystyk.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień generowania raportów.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Krok \ref{pu6.1:1} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do generowania raportów.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsubsection{PU7.3.1 Prezentacja ilości zakupionych zasobów w poszczególnych placówkach}
+\myparagraph{Opis}
+Przypadek prezentowania statystyk dotyczących ilości zakupów zasobów wybranych przez użytkownika w placówkach wybranych przez użytkownika.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Użytkownik otrzymuje prezentacje statystyk dotyczących zakupu zasobów w placówkach.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu7.3.1:1} Aktor wybiera ikone generowania statystyk.
+	\item System prezentuje dostępne typy raportów.
+	\item \label{pu7.3.1:2} Aktor wybiera prezentacje statystyk dotyczących zakupów zasobów w placówkach.
+	\item System prezentuje okno parametrów raportu.
+	\item Aktor wybiera zasoby dla których mają być obliczane statystyki oraz wybiera placówki dla których mają być wygenerowany raport.
+	\item Aktor wciska przycisk „Generuj”.
+	\item System wyświetla prezentacje statystyk.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień generowania raportów.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Krok \ref{pu6.1:1} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do generowania raportów.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsubsection{PU7.3.2 Prezentacja ilości używanych zasobów w poszczególnych placówkach}
+\myparagraph{Opis}
+Przypadek prezentowania statystyk dotyczących ilości używanych zasobów wybranych przez użytkownika w placówkach wybranych przez użytkownika.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Użytkownik otrzymuje prezentacje statystyk dotyczących użycia zasobów w placówkach.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu7.3.2:1} Aktor wybiera ikone generowania statystyk.
+	\item System prezentuje dostępne typy raportów.
+	\item \label{pu7.3.2:2} Aktor wybiera prezentacje statystyk dotyczących użycia zasobów w placówkach.
+	\item System prezentuje okno parametrów raportu.
+	\item Aktor wybiera zasoby dla których mają być obliczane statystyki oraz wybiera placówki dla których mają być wygenerowany raport.
+	\item Aktor wciska przycisk „Generuj”.
+	\item System wyświetla prezentacje statystyk.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień generowania raportów.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Krok \ref{pu6.1:1} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do generowania raportów.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsubsection{PU7.3.3 Prezentacja ilości napraw zasobów w poszczególnych placówkach}
+\myparagraph{Opis}
+Przypadek prezentowania statystyk dotyczących ilości napraw zasobów wybranych przez użytkownika w placówkach wybranych przez użytkownika.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Użytkownik otrzymuje prezentacje statystyk dotyczących napraw zasobów w placówkach.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu7.3.3:1} Aktor wybiera ikone generowania statystyk.
+	\item System prezentuje dostępne typy raportów.
+	\item \label{pu7.3.3:2} Aktor wybiera prezentacje statystyk dotyczących napraw zasobów w placówkach.
+	\item System prezentuje okno parametrów raportu.
+	\item Aktor wybiera zasoby dla których mają być obliczane statystyki oraz wybiera działy dla których mają być wygenerowany raport.
+	\item Aktor wciska przycisk „Generuj”.
+	\item System wyświetla prezentacje statystyk.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień generowania raportów.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Krok \ref{pu6.1:1} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do generowania raportów.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsection{PU8 Rejestracja informacji dotyczącej miejsca zakupu} \label{pu8}
+\myparagraph{Opis}
+Przypadek rejestracji miejsca zakupu zasobu.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Zasób jest już wprowadzony do bazy systemu.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Do systemu katalogowego została zapisana informacja dotycząca miejsca zakupu zasobu.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu8:1} Aktor wyszukuje zasób zgodnie z \ref{pu1}
+	\item \label{pu8:2} Aktor wybiera zasób oraz wciska przycisk ,,Edytuj''.
+	\item System prezentuje okno edycji zasobu.
+	\item Aktor wprowadza informacje dotyczącą miejsca zakupu zasobu.
+	\item Aktor wciska przycisk „Zapisz”.
+	\item System wyświetla potwierdzenie zmiany danych zasobu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień do edycji zasobu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu8:1} - \ref{pu8:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do edycji.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsection{PU9 Historia napraw sprzętu} \label{pu9}
+\subsubsection{PU9.1 Rejestracja informacji o wewnętrznej naprawie sprzętu}
+\myparagraph{Opis}
+Przypadek rejestracji informacji naprawie sprzętu dokonanej wewnątrz firmy.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Sprzęt jest już wprowadzony do bazy systemu.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Do systemu katalogowego została zapisana informacja dotycząca wewnętrznej naprawy sprzętu.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu9.1:1} Aktor wyszukuje sprzęt zgodnie z \ref{pu1}
+	\item \label{pu9.1:2} Aktor wybiera sprzęt oraz wciska przycisk ,,Edytuj''.
+	\item System prezentuje okno edycji sprzętu.
+	\item \label{pu9.1:4} Aktor wprowadza informacje o przeprowadzonej wewnętrznej naprawie sprzętu.
+	\item Aktor wciska przycisk „Zapisz”.
+	\item System wyświetla potwierdzenie zmiany danych sprzętu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień do edycji sprzętu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu9.1:1} - \ref{pu9.1:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do edycji.
+	\end{enumerate}
+	\item Niepoprawny okres przebywania w naprawie.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu9.1:1} - \ref{pu9.1:4} jak w przebiegu podstawowym.
+		\item System wyświetla informację o nakładaniu się okresów naprawy z innym wpisem o naprawie.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsubsection{PU9.2 Rejestracja informacji o zewnętrznej naprawie sprzętu}
+\myparagraph{Opis}
+Przypadek rejestracji informacji naprawie sprzętu dokonanej w firmie zewnętrznej.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Sprzęt jest już wprowadzony do bazy systemu.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Do systemu katalogowego została zapisana informacja dotycząca zewnętrznej naprawy sprzętu.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu9.2:1} Aktor wyszukuje sprzęt zgodnie z \ref{pu1}
+	\item \label{pu9.2:2} Aktor wybiera sprzęt oraz wciska przycisk ,,Edytuj''.
+	\item System prezentuje okno edycji sprzętu.
+	\item \label{pu9.2:4} Aktor wprowadza informacje o przeprowadzonej zewnętrznej naprawie sprzętu.
+	\item Aktor wciska przycisk „Zapisz”.
+	\item System wyświetla potwierdzenie zmiany danych sprzętu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień do edycji sprzętu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu9.2:1} - \ref{pu9.2:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do edycji.
+	\end{enumerate}
+	\item Niepoprawny okres przebywania w naprawie.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu9.2:1} - \ref{pu9.2:4} jak w przebiegu podstawowym.
+		\item System wyświetla informację o nakładaniu się okresów naprawy z innym wpisem o naprawie.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsection{PU10 Rejestracja aktualizacji oprogramowania} \label{pu10}
+\myparagraph{Opis}
+Przypadek rejestracji instalacji aktualizacji oprogramowania.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Oprogramowanie jest już wprowadzone do bazy systemu.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Do systemu katalogowego została zapisana informacja dotycząca instalacji aktualizacji oprogramowania.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu10:1} Aktor wyszukuje oprogramowanie zgodnie z \ref{pu1}
+	\item \label{pu10:2} Aktor wybiera oprogramowanie oraz wciska przycisk ,,Edytuj''.
+	\item System prezentuje okno edycji oprogramowania.
+	\item \label{pu10:4} Aktor wprowadza informacje o przeprowadzonej instalacji aktualizacji oprogramowania.
+	\item Aktor wciska przycisk „Zapisz”.
+	\item System wyświetla potwierdzenie zmiany danych oprogramowania.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień do edycji oprogramowania.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu10:1} - \ref{pu10:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do edycji.
+	\end{enumerate}
+	\item Aktualizacja oprogramowania została już przeprowadzona.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu10:1} - \ref{pu10:4} jak w przebiegu podstawowym.
+		\item System wyświetla informację o tym, że wprowadzana aktualizacja została już przeprowadzona.
+	\end{enumerate}
+\end{enumerate}
+
+\myparagraph{Sytuacje wyjątkowe}
+Brak połączenia z siecią.
+
+\subsection{PU11 Rejestracja operacji serwisowej} \label{pu11}
+\myparagraph{Opis}
+Przypadek rejestracji faktu serwisowania sprzętu.
+
+\myparagraph{Aktorzy}
+Użytkownik systemu.
+
+\myparagraph{Warunki wstępne}
+\begin{itemize}
+\item Użytkownik jest zalogowany w systemie.
+\item Sprzęt jest już wprowadzony do bazy systemu.
+\end{itemize}
+
+\myparagraph{Warunki końcowe}
+\begin{itemize}
+\item Do systemu katalogowego została zapisana informacja dotycząca przeprowadzonej operacji serwisowej.
+\end{itemize}
+
+\myparagraph{Przebieg podstawowy}
+\begin{enumerate}
+	\item \label{pu11:1} Aktor wyszukuje sprzęt zgodnie z \ref{pu1}
+	\item \label{pu11:2} Aktor wybiera sprzęt oraz wciska przycisk ,,Edytuj''.
+	\item System prezentuje okno edycji sprzęt.
+	\item Aktor wprowadza informacje o przeprowadzonej operacji serwisowej.
+	\item Aktor wciska przycisk „Zapisz”.
+	\item System wyświetla potwierdzenie zmiany danych sprzętu.
+\end{enumerate}
+
+\myparagraph{Alternatywne przebiegi zdarzeń}
+\begin{enumerate}
+	\item Aktor nie posiada uprawnień do edycji sprzętu.
+	\begin{enumerate}[label*=\arabic*.]
+		\item Kroki \ref{pu11:1} - \ref{pu11:2} jak w przebiegu podstawowym.
+		\item System wyświetla informację o braku uprawnień do edycji.
+	\end{enumerate}
+\end{enumerate}
+
+
+\myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
