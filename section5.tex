@@ -3,10 +3,10 @@
 
 \subsection{Aktorzy}
 \begin{itemize}
-\item Użytkownik zasobów
-\item Administrator zasobów
-\item Serwisant
-\item Menadżer
+\item Użytkownik zasobów - osoba uprawniona jedynie do przeglądania zasobów zarejestrowanych w systemie
+\item Administrator zasobów - osoba zarządzająca wprowadzonymi zasobami - dodaje, edytuje i usuwa zasoby, wprowadza także informacje nt. osób odpowiedzialnych za zasoby oraz rejestrujący użytkowników zasobu.
+\item Serwisant - osoba odpowiedzialna za wprowadzanie informacji dotyczących napraw sprzętu, aktualizacji oprogramowania oraz operacji serwisowych.
+\item Menadżer - osoba mająca możliwość generowania raportów przedstawiających statystyki nt. zasobów zarejestrowanych w systemie.
 \end{itemize}
 
 
@@ -577,6 +577,12 @@ Brak połączenia z siecią.
 
 
 \subsection{PU6 Współpraca z modułem rejestru pracowników} \label{pu6}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU6.png}
+	\caption{Diagram przypadków użycia PU6.1 i PU6.2 \label{fig:labelUCPU6}}
+\end{figure}
+
 \subsubsection{PU6.1 Zapisanie informacji o osobie odpowiedzialnej za zasób}
 \myparagraph{Opis}
 Przypadek zapisywania informacji o osobie, która odpowiada za zasób.
@@ -615,6 +621,12 @@ Administrator zasobów.
 \end{enumerate}
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU61}
+	\caption{Diagram aktywności przypadku użycia PU6.1 \label{fig:labelADPU6.1}}
+\end{figure}
 
 \subsubsection{PU6.2 Zapisanie informacji o użytkowniku konkretnego zasobu}
 \myparagraph{Opis}
@@ -656,7 +668,19 @@ Administrator zasobów.
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU62}
+	\caption{Diagram aktywności przypadku użycia PU6.2 \label{fig:labelADPU6.2}}
+\end{figure}
+
 \subsection{PU7 Obliczanie statystyk} \label{pu7}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU6.png}
+	\caption{Diagram przypadków użycia PU6.1 i PU6.2 \label{fig:labelUCPU6}}
+\end{figure}
+
 \subsubsection{PU7.1 Prezentacja zakupów konkretnych zasobów w poszczególnych latach}
 \myparagraph{Opis}
 Przypadek prezentowania statystyk dotyczących ilości zakupów zasobów wybranych przez użytkownika w latach wybranych przez użytkownika.
@@ -696,6 +720,12 @@ Menadżer.
 
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU71.png}
+	\caption{Diagram aktywności przypadku użycia PU7.1 \label{fig:labelADPU7.1}}
+\end{figure}
 
 \subsubsection{PU7.2.1 Prezentacja ilości zakupionych zasobów w poszczególnych działach}
 \myparagraph{Opis}
@@ -737,6 +767,12 @@ Menadżer.
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU721}
+	\caption{Diagram aktywności przypadku użycia PU7.2.1 \label{fig:labelADPU7.2.1}}
+\end{figure}
+
 \subsubsection{PU7.2.2 Prezentacja ilości używanych zasobów w poszczególnych działach}
 \myparagraph{Opis}
 Przypadek prezentowania statystyk dotyczących ilości używanych zasobów wybranych przez użytkownika w działach wybranych przez użytkownika.
@@ -776,6 +812,12 @@ Menadżer.
 
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU722}
+	\caption{Diagram aktywności przypadku użycia PU7.2.2 \label{fig:labelADPU7.2.2}}
+\end{figure}
 
 \subsubsection{PU7.2.3 Prezentacja ilości napraw zasobów w poszczególnych działach}
 \myparagraph{Opis}
@@ -817,6 +859,12 @@ Menadżer.
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU723}
+	\caption{Diagram aktywności przypadku użycia PU7.2.3 \label{fig:labelADPU7.2.3}}
+\end{figure}
+
 \subsubsection{PU7.3.1 Prezentacja ilości zakupionych zasobów w poszczególnych placówkach}
 \myparagraph{Opis}
 Przypadek prezentowania statystyk dotyczących ilości zakupów zasobów wybranych przez użytkownika w placówkach wybranych przez użytkownika.
@@ -856,6 +904,12 @@ Menadżer.
 
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU731}
+	\caption{Diagram aktywności przypadku użycia PU7.3.1 \label{fig:labelADPU7.3.1}}
+\end{figure}
 
 \subsubsection{PU7.3.2 Prezentacja ilości używanych zasobów w poszczególnych placówkach}
 \myparagraph{Opis}
@@ -897,6 +951,12 @@ Menadżer.
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU732}
+	\caption{Diagram aktywności przypadku użycia PU7.3.2 \label{fig:labelADPU7.3.2}}
+\end{figure}
+
 \subsubsection{PU7.3.3 Prezentacja ilości napraw zasobów w poszczególnych placówkach}
 \myparagraph{Opis}
 Przypadek prezentowania statystyk dotyczących ilości napraw zasobów wybranych przez użytkownika w placówkach wybranych przez użytkownika.
@@ -937,7 +997,19 @@ Menadżer.
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU733}
+	\caption{Diagram aktywności przypadku użycia PU7.3.3 \label{fig:labelADPU7.3.3}}
+\end{figure}
+
 \subsection{PU8 Rejestracja informacji dotyczącej miejsca zakupu} \label{pu8}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU8}
+	\caption{Diagram przypadków użycia PU8 \label{fig:labelUCPU8}}
+\end{figure}
+
 \myparagraph{Opis}
 Przypadek rejestracji miejsca zakupu zasobu.
 
@@ -977,7 +1049,19 @@ Administrator zasobów.
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU8.png}
+	\caption{Diagram aktywności przypadku użycia PU8 \label{fig:labelADPU8}}
+\end{figure}
+
 \subsection{PU9 Historia napraw sprzętu} \label{pu9}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU9.png}
+	\caption{Diagram przypadków użycia PU9.1 i PU9.2 \label{fig:labelUCPU9}}
+\end{figure}
+
 \subsubsection{PU9.1 Rejestracja informacji o wewnętrznej naprawie sprzętu}
 \myparagraph{Opis}
 Przypadek rejestracji informacji naprawie sprzętu dokonanej wewnątrz firmy.
@@ -1022,6 +1106,12 @@ Serwisant.
 
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU91}
+	\caption{Diagram aktywności przypadku użycia PU9.1 \label{fig:labelADPU9.1}}
+\end{figure}
 
 \subsubsection{PU9.2 Rejestracja informacji o zewnętrznej naprawie sprzętu}
 \myparagraph{Opis}
@@ -1068,7 +1158,19 @@ Serwisant.
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU92}
+	\caption{Diagram aktywności przypadku użycia PU9.2 \label{fig:labelADPU9.2}}
+\end{figure}
+
 \subsection{PU10 Rejestracja aktualizacji oprogramowania} \label{pu10}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU10}
+	\caption{Diagram przypadków użycia PU10 \label{fig:labelUCPU10}}
+\end{figure}
+
 \myparagraph{Opis}
 Przypadek rejestracji instalacji aktualizacji oprogramowania.
 
@@ -1113,7 +1215,19 @@ Serwisant.
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU10.png}
+	\caption{Diagram aktywności przypadku użycia PU10 \label{fig:labelADPU10}}
+\end{figure}
+
 \subsection{PU11 Rejestracja operacji serwisowej} \label{pu11}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU11.png}
+	\caption{Diagram przypadków użycia PU11 \label{fig:labelUCPU11}}
+\end{figure}
+
 \myparagraph{Opis}
 Przypadek rejestracji faktu serwisowania sprzętu.
 
@@ -1153,3 +1267,9 @@ Serwisant.
 
 \myparagraph{Sytuacje wyjątkowe}
 Brak połączenia z siecią.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/activityDiagrams/PU11.png}
+	\caption{Diagram aktywności przypadku użycia PU11 \label{fig:labelADPU11}}
+\end{figure}
