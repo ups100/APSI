@@ -11,11 +11,24 @@
 
 
 \subsection{PU1 Wyszukiwanie zasobów} \label{pu1}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU1.png}
+	\caption{Diagram przypadku użycia PU1 \label{fig:labelUCPU1}}
+\end{figure}
+
 \myparagraph{Opis}
 Przypadek wyszukiwania zasobów za pomocą zadanych kryteriów przez użytkownika.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Jeden z następujących:
+\begin{itemize}
+\item użytkownik zasobów,
+\item administrator zasobów,
+\item menadżer,
+\item serwisant.
+\end{itemize}
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -50,13 +63,26 @@ Brak połączenia z siecią.
 
 
 \subsection{PU2 Obsługa sprzetu kopmuterowego} \label{pu2}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU2_1.png}
+	\caption{Diagram przypadku użycia PU2.1 \label{fig:labelUCPU2.1}}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU2_2_2_3.png}
+	\caption{Diagram przypadków użycia PU2.2 i PU2.3 \label{fig:labelUCPU2.2_2.3}}
+\end{figure}
+
 \subsubsection{PU2.1 Dodanie nowego sprzętu komputerowego do systemu}
 
 \myparagraph{Opis}
 Przypadek dodawania nowego sprzętu komputerowego do systemu katalogowego.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -102,7 +128,7 @@ Brak połączenia z siecią.
 Przypadek edycji danych sprzętu komputerowego znajdującego się w systemie katalogowym.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -148,7 +174,7 @@ Brak połączenia z siecią.
 Przypadek użycia opisuje procedurę usunięcia sprzętu komputerowego z systemu katalogowego.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -183,13 +209,32 @@ Użytkownik zasobów.
 Brak połączenia z siecią.
 
 \subsection{PU3 Obsługa oprogramowania} \label{pu3}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU3_1.png}
+	\caption{Diagram przypadku użycia PU3.1 \label{fig:labelUCPU3.1}}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU3_2.png}
+	\caption{Diagram przypadku użycia PU3.2 \label{fig:labelUCPU3.2}}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU3_3.png}
+	\caption{Diagram przypadku użycia PU3.3 \label{fig:labelUCPU3.3}}
+\end{figure}
+
 \subsubsection{PU3.1 Dodanie nowego oprogramowania}
 
 \myparagraph{Opis}
 Przypadek użycia opisuje procedurę dodania nowego oprogramowania do systemu katalogowego.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -233,7 +278,7 @@ Brak połączenia z siecią.
 Przypadek użycia opisuje procedurę edycji informacji dotyczących oprogramowania znajdującego się w systemie - możliwa jest zmiana podstawowych danych oraz edycja przeprowadzonych instalacji.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów lub Serwisant.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -279,7 +324,7 @@ Brak połączenia z siecią.
 Przypadek użycia opisuje procedurę usunięcia oprogramowania (wraz z danymi na temat przeprowadzonych instalacji) z systemu katalogowego.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -314,13 +359,26 @@ Użytkownik zasobów.
 Brak połączenia z siecią.
 
 \subsection{PU4 Obsługa innego sprzętu, urządzeń lub wyposażenia} \label{pu4}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU4_1.png}
+	\caption{Diagram przypadku użycia PU4.1 \label{fig:labelUCPU2.1}}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU4_2_4_3.png}
+	\caption{Diagram przypadków użycia PU4.2 i PU4.3 \label{fig:labelUCPU4.2_4.3}}
+\end{figure}
+
 \subsubsection{PU4.1 Dodanie innego sprzętu, urządzeń lub wyposażenia do systemu}
 
 \myparagraph{Opis}
 Przypadek użycia opisuje procedurę dodania sprzętu, urządzeń lub wyposażenia do systemu.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -364,7 +422,7 @@ Brak połączenia z siecią.
 Przypadek użycia opisuje procedurę edycji informacji dotyczących ogólnych zasobów.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -410,7 +468,7 @@ Brak połączenia z siecią.
 Przypadek użycia opisuje procedurę usunięcia zasobu (ogólnego typu) z systemu katalogowego.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -445,13 +503,26 @@ Użytkownik zasobów.
 Brak połączenia z siecią.
 
 \subsection{PU5 Obsługa czasopisma lub zasobu literaturowego} \label{pu5}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU5_1.png}
+	\caption{Diagram przypadku użycia PU5.1 \label{fig:labelUCPU5.1}}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.6]{img/diagrams/useCaseDiagrams/PU5_2_5_3.png}
+	\caption{Diagram przypadków użycia PU5.2 i PU5.3 \label{fig:labelUCPU5.2_5.3}}
+\end{figure}
+
 \subsubsection{PU5.1 Dodanie nowego czasopisma lub zasobu literaturowego do systemu}
 
 \myparagraph{Opis}
 Przypadek użycia opisuje procedurę dodania czasopisma bądź zasobu literaturowego do systemu.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -495,7 +566,7 @@ Brak połączenia z siecią.
 Przypadek użycia opisuje procedurę edycji informacji dotyczących czasopisma bądź zasobu literaturowego.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
@@ -541,7 +612,7 @@ Brak połączenia z siecią.
 Przypadek użycia opisuje procedurę usunięcia czasopisma/zasobu literaturowego z systemu katalogowego.
 
 \myparagraph{Aktorzy}
-Użytkownik zasobów.
+Administrator zasobów.
 
 \myparagraph{Warunki wstępne}
 \begin{itemize}
