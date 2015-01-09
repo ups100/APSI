@@ -21,7 +21,7 @@ spełnianie poszczególnych założeń funkcjonalnych systemu (o których mowa w
 
 Warstwa danych odpowiedzialna będzie za dostęp do bazy danych - odczytywanie i zapisywanie w niej informacji.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{img/architektura}
 	\caption{Schemat architektury \label{fig:labelArchitecture}}
@@ -55,7 +55,7 @@ licencji na oprogramowanie. Ponieważ firma się intensywnie rozwija
 należy założyć, że system będzie obsługiwał co najmniej 30 tysięcy
 przedmiotów. W chwili obecnej firma zatrudnia około 1500
 pracowników. Ponieważ firma przeżywa intensywny rozwój konieczne jest
-zwymiarowanie systemu na poziomie co najmnije dwukrotności obecnego
+zwymiarowanie systemu na poziomie co najmniej dwu krotności obecnego
 zatrudnienia to jest 3000 pracowników. System należy do grupy systemów
 wspierających funkcjonowanie przedsiębiorstwa i nie będzie
 wykorzystywany w ramach podstawowych zadania pracowników. Należy zatem
@@ -68,9 +68,9 @@ są zgodne z wymaganiami niefunkcjonalnymi przedstawionymi w
 \subsection{Rozkład obciążenia na poszczególne warstwy}
 
 Aplikacja w architekturze trójwarstwowej posiada budowę bardzo
-modularną, przez co mozliwe jest rozmieszczenie różnych elementów na
+modularną, przez co możliwe jest rozmieszczenie różnych elementów na
 odpowiednich maszynach. Dzięki takiemu rozmieszczeniu każda z warstw
-moze być wykonywana na sprzęcie dostosowanym do jej zadań. Ponieważ
+może być wykonywana na sprzęcie dostosowanym do jej zadań. Ponieważ
 każda warstwa wykonuje inne zadania to znacząco też różni się
 charakterystyka sprzętu, który należy wykorzystać w danej warstwie.
 
@@ -85,29 +85,29 @@ sieci wewnętrznej przedsiębiorstwa należy zapewnić odpowiedni poziom
 bezpieczeństwa poprzez wykorzystanie protokołu SSL/TLS.
 
 Z perspektywy wymaganych zasobów sprzętowych wymagania dla tej warstwy
-mozna podzielić na dwie części. Pierwsza z nich dotyczy wymagań co do
+można podzielić na dwie części. Pierwsza z nich dotyczy wymagań co do
 urządzenia na którym treść będzie prezentowana. Konieczne jest aby
 takie urządzenie wyposażone było w przeglądarkę obsługującą
-JavaScript. Druga część z wymagań sprzetowych dotyczy serwera www, do
-którego kierowane będą rządania. Od tego urządzenia wymaga się przede
+JavaScript. Druga część z wymagań sprzętowych dotyczy serwera www, do
+którego kierowane będą żądania. Od tego urządzenia wymaga się przede
 wszystkim wysokiej wydajności, krótkiego czasu odpowiedzi oraz
 możliwości obsługi wielu klientów jednocześnie. Istotne jest również
 zapewnienie wysokiej dostępności tego serwera.
 
 \subsubsection{Warstwa logiki biznesowej}
 
-Warstwa logiki biznesowej odpowiedzialna jest za przetwarzanie rządań
+Warstwa logiki biznesowej odpowiedzialna jest za przetwarzanie żądań
 klienta w sposób zgodny z prawami rządzącymi organizacją. Zostanie ona
 zaimplementowana w technologii J2EE. Jako serwer aplikacyjny wybrano
 JBoos Application Server.
 
-Z perspektywy wymaganych zasobów warstwa ta posiada analigoczne
+Z perspektywy wymaganych zasobów warstwa ta posiada analogiczne
 wymagania jak warstwa prezentacji. Oznacza to, że istotna dostępność,
 krótki czas odpowiedzi oraz możliwość obsługi wielu klientów
 równocześnie. Te abstrakcyjne wymagania tej warstwy na sprzęt
 przekładają się na duże zapotrzebowanie na procesor (w tym ich
 liczbę), rozmiar pamięci RAM oraz szybkość odpowiedzi dysku twardego,
-notomiast już sam rozmiar tego dysku może być nie zbyt duży.
+natomiast już sam rozmiar tego dysku może być nie zbyt duży.
 
 \subsubsection{Warstwa danych}
 
@@ -121,11 +121,133 @@ wydajność jak i bezpieczeństwo przechowywanych danych.
 Z perspektywy wymaganych zasobów sprzętowych warstwa ta posiada
 analogiczne wymagania co poprzednia lecz są one tutaj bardziej
 krytyczne, gdyż zbyt długie przetwarzanie zapytania przez bazę danych
-znacząco wydłuża czas odpowiedzi aplikacji. Neleży również pamietać o
-dostosowaniu rozmiaru pamieci operacyjnej oraz zamontowaniu
-odpowedniej liczby wydajnych dysków twardych wraz z zapewnieniem ich
+znacząco wydłuża czas odpowiedzi aplikacji. Należy również pamiętać o
+dostosowaniu rozmiaru pamięci operacyjnej oraz zamontowaniu
+odpowiedniej liczby wydajnych dysków twardych wraz z zapewnieniem ich
 replikacji w celu zabezpieczenia się przed utrata danych.
 
 \subsection{Sprzęt}
 
+Budowa nowego systemu zarządzania przedmiotami i licencjami wymaga
+znacznej rozbudowy dotychczasowej infrastruktury IT firmy.
+
+\subsubsection{Warstwa prezentacji oraz aplikacji}
+
+Część kliencka budowanego systemu będzie uruchamiana poprzez
+przeglądarkę na komputerach pracowników firmy. Dzięki temu część
+warstwy prezentacji, którą należy umieścić na serwerze składa się
+wyłącznie z serwera WWW. Aby zatem ograniczyć konieczne zasoby
+sprzętowe, a także opóźnienia w komunikacji pomiędzy warstwą
+prezentacji, a warstwą aplikacji zdecydowano umieścić je na wspólnej
+maszynie. Ponieważ klient ma wysokie wymagania co do dostępności
+systemu, należy zakupić dwa serwery, które będą współdziałały i
+dzieliły obciążenie pomiędzy siebie, a w razie awarii jednego z nich
+drugi będzie w stanie zapewnić pełną funkcjonalność.
+
+
+Jako serwer www oraz aplikacyjny powinna zostać wykorzystana maszyna,
+która posiada wysoko wydajne procesory oraz pamięć RAM. Ważna jest
+również możliwość montażu dysków twardych o krótkim czasie dostępu. W
+związku z powyższym zdecydowano o wykorzystaniu serwerów Dell
+PowerEdge R630.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/r630.jpg}
+	\caption{Dell PowerEdge R630}
+\end{figure}
+
+Jest to wysoko wydajny serwer, który dzięki małych rozmiarów oszczędzi
+miejsce w serwerowni oraz cechuje się niskim zużyciem
+energii. Parametry techniczne serwera:
+
+\begin{description}
+\item[procesor] 2 sockety procesora (dla Intel® Xeon® E5 2600 v3)
+\item[chipset] Intel C610
+\item[pamięć RAM] do 768 GB (24 sloty DIMM) DDR4
+\item[pamięć trwała] do 10 dysków (1,8 TB każdy)
+\item[kontroler RAID] PERC H730P
+\item[złącza I/O] do 3 złącz PCIe
+\item[karta sieciowa] 4 x 1Gb, 2 x 1Gb + 2 x 10Gb, 4 x 10Gb
+\item[obudowa] Rack 1U
+\item[zasilanie] 2x 750W HotPlug
+\end{description}
+
+Aby serwer spełnił stawiane przed nim wymagania wydajnościowe należy
+zakupić go w następującej konfiguracji:
+
+\begin{description}
+\item[procesor] 2x Intel® Xeon® Processor E5-2697 v3
+\item[chipset] Intel C610
+\item[pamięć RAM] 8x 16 GB DDR4
+\item[pamięć trwała] 8x 146 GB 15k SAS (RAID 10)
+\item[kontroler RAID] PERC H730P
+\item[złącza I/O] do 3 złącz PCIe
+\item[karta sieciowa] 4 x 1Gb, 2 x 1Gb + 2 x 10Gb, 4 x 10Gb
+\item[obudowa] Rack 1U
+\item[zasilanie] 2x 750W HotPlug
+\end{description}
+
+Zastosowanie dwóch serwerów o wskazanych parametrów pozwoli sprostać
+wszystkim wymaganiom stawianym przez klienta. Ponadto zapewniona jest
+możliwość skalowania dostarczonego rozwiązania poprzez dodanie
+kolejnego serwera aplikacji lub rozbudowę (głównie pamięć operacyjna)
+posiadanych już serwerów.
+
+\subsubsection{Warstwa danych}
+
+Serwer bazy danych powinien pozwalać na gromadzenie znacznej ilości
+danych. Konieczne jest również zapewnienie redundantnego drugiego
+serwera bazy danych, aby równoważyć obciążenie oraz zapewnić wysoką
+dostępność. W celu zapewnienie odpowiednich możliwości w zakresie
+przechowywania i przetwarzania dużej ilości danych postanowiono
+wykożystać dwa serwery Dell PowerEdge R920.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/r920.jpg}
+	\caption{Dell PowerEdge R920}
+\end{figure}
+
+Jest to wysokiej klasy serwer, którego parametry pozwolą na
+przetwarzanie danych w czasie rzeczywistym. Parametry techniczne
+serwera:
+
+\begin{description}
+\item[procesor] 4 sockety procesora (dla Intel Xeon E7-4800 v2 lub E7-8800 v2)
+\item[chipset] Intel C602J
+\item[pamięć RAM] do 6TB (96 slotów DIMM) DDR3L, RDIMM, LR-DIMM
+\item[pamięć trwała] do 24 dysków (1,2 TB każdy)
+\item[kontroler RAID] PERC H730P
+\item[złącza I/O] do 10 złącz PCIe
+\item[karta sieciowa] Intel Ethernet X540 10Gb BT DP + I350 1Gb BT DP
+\item[karta graficzna] Matrox® G200 with 8MB memory
+\item[obudowa] Rack 4U
+\item[zasilanie] 4x 1100W HotPlug
+\end{description}
+
+Maksymalne parametry techniczne wybranego serwera znacząco
+przewyższają bieżące zapotrzebowanie firmy dlatego wykorzystana
+będzie następująca konfiguracja:
+
+\begin{description}
+\item[procesor] 2x Intel® Xeon® Processor E7-8880 v2 (37.5M Cache, 2.50 GHz)
+\item[chipset] Intel C602J
+\item[pamięć RAM] 8x 16 GB
+\item[pamięć trwała] 2x 146 GB 15k SAS + 8x 1.2 TB
+\item[kontroler RAID] PERC H730P
+\item[złącza I/O] do 10 złącz PCIe
+\item[karta sieciowa] Intel Ethernet X540 10Gb BT DP + I350 1Gb BT DP
+\item[karta graficzna] Matrox® G200 with 8MB memory
+\item[obudowa] Rack 4U
+\item[zasilanie] 4x 1100W HotPlug
+\end{description}
+
+Zastosowana konfiguracja jest zdecydowanie wystarczająca dla
+bieżących wymagań firmy, a zastosowanie wysokiej klasy serwera
+pozostawia duże możliwości w zakresie skalowalności, dzięki czemu
+serwery te będzie można dostosować do potrzeb intensywnie rozwijającej
+się firmy. Dzięki wsparciu technologii wirtualizacji sprzętowej serwer
+ten będzie mógł być efektywnie współdzielony z pozostałymi modułami
+budowanego systemu.
 
