@@ -84,22 +84,6 @@ Reprezentuje dział firmy.
 	\label{TAB:CompanyDepartment}
 \end{table}
 
-\subsubsection{CompanyDepartment}
-Reprezentuje dział firmy.
-\begin{table}[H]
-	\renewcommand\arraystretch{1.5}
-	\renewcommand\tabcolsep{3pt}
-	\begin{tabular}{| c | c | c | c |} 
-		\hline \textbf{Nazwa atrybutu} & \textbf{Znaczenie atrybutu} & \textbf{Typ danych} & \textbf{Ograniczenia} \\ 
-		\hline ID & PRIMARY KEY & Numeric(10,0) & NOT NULL, UNIQUE \\ 
-		\hline Name & Nazwa działu & Varchar(255) &  \\ 
-		\hline institutionID & FOREIGN KEY & Numeric(10,0) & \\ 
-		\hline 
-	\end{tabular} 
-	\caption{Tabela CompanyDepartment}
-	\label{TAB:CompanyDepartment}
-\end{table}
-
 \subsubsection{Institution}
 Reprezentuje oddział firmy.
 \begin{table}[H]
@@ -179,4 +163,106 @@ Reprezentuje parametry (parametry i ich wartości).
 	\end{tabular} 
 	\caption{Tabela Parameters}
 	\label{TAB:Parameters}
+\end{table}
+
+\subsubsection{Resource}
+Reprezentuje zasób w firmie. Tabela jest podstawą do rozszerzania.
+\begin{table}[H]
+	\renewcommand\arraystretch{1.5}
+	\renewcommand\tabcolsep{3pt}
+	\begin{tabular}{| c | c | c | c |} 
+		\hline \textbf{Nazwa atrybutu} & \textbf{Znaczenie atrybutu} & \textbf{Typ danych} & \textbf{Ograniczenia} \\ 
+		\hline ID & PRIMARY KEY & numeric(10,0) & NOT NULL, UNIQUE \\ 
+		\hline name & Nazwa zasobu & varchar(255) & NOT NULL  \\
+		\hline description & Opis zasobu & varchar(255) & \\ 
+		\hline 
+	\end{tabular} 
+	\caption{Tabela Resource}
+	\label{TAB:Resource}
+\end{table}
+
+\subsubsection{JournalOrLiterature}
+Reprezentuje czasopismo lub zasób książkowy. Rozszerza tabelę Resources.
+\begin{table}[H]
+	\renewcommand\arraystretch{1.5}
+	\renewcommand\tabcolsep{3pt}
+	\begin{tabular}{| c | c | c | c |} 
+		\hline \textbf{Nazwa atrybutu} & \textbf{Znaczenie atrybutu} & \textbf{Typ danych} & \textbf{Ograniczenia} \\ 
+		\hline ID & PRIMARY KEY & numeric(10,0) & NOT NULL, UNIQUE \\ 
+		\hline publisher & Wydawca & varchar(255) & NOT NULL \\ 
+		\hline yearPublished & Data publikacji & numeric(4,0) & \\
+		\hline authors & Autorzy & varchar(255) & NOT NULL \\
+		\hline title & Tytuł & varchar(255) & NOT NULL \\ 
+		\hline ISBN & ISBN & varchar(255) & NOT NULL \\ 
+		\hline resourceID & FOREIGN KEY & numeric(10,0) & NOT NULL \\ 
+		\hline 
+	\end{tabular} 
+	\caption{Tabela Resource}
+	\label{TAB:Resource}
+\end{table}
+
+\subsubsection{Hardware}
+Reprezentuje zasób sprzętowy. Rozszerza tabelę Resources.
+\begin{table}[H]
+	\renewcommand\arraystretch{1.5}
+	\renewcommand\tabcolsep{3pt}
+	\begin{tabular}{| c | c | c | c |} 
+		\hline \textbf{Nazwa atrybutu} & \textbf{Znaczenie atrybutu} & \textbf{Typ danych} & \textbf{Ograniczenia} \\ 
+		\hline ID & PRIMARY KEY & numeric(10,0) & NOT NULL, UNIQUE \\ 
+		\hline serialNumber & Numer seryjny & varchar(255) & NOT NULL \\ 
+		\hline resourceID & FOREIGN KEY & numeric(10,0) & NOT NULL \\ 
+		\hline 
+	\end{tabular} 
+	\caption{Tabela Hardware}
+	\label{TAB:Hardware}
+\end{table}
+
+\subsubsection{HardwareResourceCompatibility}
+Reprezentuje kompatybilność sprzętu z zasobami.
+\begin{table}[H]
+	\renewcommand\arraystretch{1.5}
+	\renewcommand\tabcolsep{3pt}
+	\begin{tabular}{| c | c | c | c |} 
+		\hline \textbf{Nazwa atrybutu} & \textbf{Znaczenie atrybutu} & \textbf{Typ danych} & \textbf{Ograniczenia} \\ 
+		\hline ID & PRIMARY KEY & numeric(10,0) & NOT NULL, UNIQUE \\ 
+		\hline hardwareId & Numer seryjny & numeric(10,0) & NOT NULL \\ 
+		\hline resourceID & FOREIGN KEY & numeric(10,0) & NOT NULL \\ 
+		\hline 
+	\end{tabular} 
+	\caption{Tabela HardwareResourceCompatibility}
+	\label{TAB:HardwareResourceCompatibility}
+\end{table}
+
+\subsubsection{DeviceAndOthers}
+Reprezentuje urządzenia oraz inne zasoby. Rozszerza tabelę Resources.
+\begin{table}[H]
+	\renewcommand\arraystretch{1.5}
+	\renewcommand\tabcolsep{3pt}
+	\begin{tabular}{| c | c | c | c |} 
+		\hline \textbf{Nazwa atrybutu} & \textbf{Znaczenie atrybutu} & \textbf{Typ danych} & \textbf{Ograniczenia} \\ 
+		\hline ID & PRIMARY KEY & numeric(10,0) & NOT NULL, UNIQUE \\ 
+		\hline serialNumber & Numer seryjny & varchar(255) & NOT NULL \\ 
+		\hline resourceID & FOREIGN KEY & numeric(10,0) & NOT NULL \\ 
+		\hline 
+	\end{tabular} 
+	\caption{Tabela DeviceAndOthers}
+	\label{TAB:DeviceAndOthers}
+\end{table}
+
+\subsubsection{Software}
+Reprezentuje oprogramowanie. Rozszerza tabelę Resources.
+\begin{table}[H]
+	\renewcommand\arraystretch{1.5}
+	\renewcommand\tabcolsep{3pt}
+	\begin{tabular}{| c | c | c | c |} 
+		\hline \textbf{Nazwa atrybutu} & \textbf{Znaczenie atrybutu} & \textbf{Typ danych} & \textbf{Ograniczenia} \\ 
+		\hline ID & PRIMARY KEY & numeric(10,0) & NOT NULL, UNIQUE \\ 
+		\hline manufacturer & Wytwórca & numeric(10,0) & NOT NULL \\ 
+		\hline version & Wersja & numeric(10,0) & NOT NULL \\ 
+		\hline licenceNumber & Numer licencji & numeric(10,0) & NOT NULL \\ 
+		\hline resourceID & FOREIGN KEY & numeric(10,0) & NOT NULL \\ 
+		\hline 
+	\end{tabular} 
+	\caption{Tabela Software}
+	\label{TAB:Software}
 \end{table}
