@@ -1,4 +1,5 @@
 \section{Analityczny model projektowy dziedziny}
+\subsection{Diagram klas}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.4]{img/class-diagram2}
@@ -47,3 +48,17 @@ Opis klas przedstawionych na diagramie~\ref{fig:labelClassDiagram}:
 			
 	\item \textbf{StatisticManager} - klasa korzystająca z obiektów \textit{Institution}, \textit{CompanyDepartment} oraz wykorzystująca zarządce zasobów - \textit{ResouceManager}. Umożliwia na uzyskanie statystyk zakupu zasobów w poszczególnych latach, z uwzględnieniem działu oraz instytucji. Ponadto umożliwia uzyskanie informacji o użyciu zasobu w dziale firmy, instytucji oraz liczbie wykonanych usług serwisowych w instytucji.
 \end{description}
+
+\newpage
+\subsection{Diagramy sekwencji}
+Przykładowe diagramy sekwencji wykorzystujące obiekty pokazane na diagramie klas.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{img/seq-pu-a}
+	\caption{Edycja danych zasobu.\label{fig:seq-pu-a}}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.4]{img/seq-pu-b}
+	\caption{Przypisanie osoby odpowiedzialnej za zasób.\label{fig:seq-pu-b}}
+\end{figure}
