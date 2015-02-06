@@ -9,7 +9,7 @@
 \subsection{Opis tabel}
 
 \subsubsection{Address}
-Odpowiada za przechowywanie adresu zasobu.
+Odpowiada za przechowywanie adresu zasobu (aktualnego) oraz miejsca zakupu.
 \begin{table}[H]
 	\renewcommand\arraystretch{1.5}
 	\renewcommand\tabcolsep{1.5pt}
@@ -44,6 +44,30 @@ Przechowuje usługę serwisową.
 \end{tabular}
 \caption{Tabela Service}
 \label{TAB:Service}
+\end{table} 
+
+\subsubsection{Repair}
+Przechowuje dane o naprawach sprzętu.
+\begin{table}[H]
+	\renewcommand\arraystretch{1.5}
+	\renewcommand\tabcolsep{1pt}
+	\begin{tabular}{| c | c | c | c |} 
+		\hline \textbf{Nazwa atrybutu} & \textbf{Znaczenie atrybutu} & \textbf{Typ danych} & \textbf{Ograniczenia} \\ 
+		\hline ID & PRIMARY KEY & Numeric(10,0) & NOT NULL, \\ 
+		 & & &  UNIQUE \\
+		\hline reason & Powód naprawy & Varchar(255) & NOT NULL\\ 
+		\hline dateFrom & Data wysłania do naprawy & Date & NOT NULL \\ 
+		\hline dateTo & Data otrzymania sprawnego sprzętu & Date & \\ 
+		\hline isExternal & Czy usługa została zlecona zewnętrznie? & Char(1) & \\ 
+		\hline personID & Identyfikator pracownika & Numeric(10,0) & \\ 
+		& przeprowadzającego naprawę wewnętrzną & & \\
+		\hline institutionID & Identyfikator instytucji wykonującej & Numeric(10,0) & \\ 
+		&  naprawę zewnętrzną & & \\
+		\hline resourceID & FOREIGN KEY & Numeric(10,0) & \\ 
+		\hline 
+	\end{tabular}
+	\caption{Tabela Service}
+	\label{TAB:Service}
 \end{table} 
 
 \subsubsection{Person}
@@ -175,9 +199,27 @@ Reprezentuje zasób w firmie. Tabela jest podstawą do rozszerzania.
 		\hline ID & PRIMARY KEY & numeric(10,0) & NOT NULL, UNIQUE \\ 
 		\hline name & Nazwa zasobu & varchar(255) & NOT NULL  \\
 		\hline description & Opis zasobu & varchar(255) & \\ 
+		\hline personID & Osoba odpowiedzialna za zasób & numeric(10,0) & NOT NULL \\ 
 		\hline 
 	\end{tabular} 
 	\caption{Tabela Resource}
+	\label{TAB:Resource}
+\end{table}
+
+\subsubsection{ResourceUsers}
+Tabla łącząca oprogramowanie z jego użytkownikami.
+\begin{table}[H]
+	\renewcommand\arraystretch{1.5}
+	\renewcommand\tabcolsep{3pt}
+	\begin{tabular}{| c | c | c | c |} 
+		\hline \textbf{Nazwa atrybutu} & \textbf{Znaczenie atrybutu} & \textbf{Typ danych} & \textbf{Ograniczenia} \\ 
+		\hline resourceID & PRIMARY KEY & numeric(10,0) & NOT NULL, UNIQUE \\ 
+		\hline personID & PRIMARY KEY & numeric(10,0) & NOT NULL, UNIQUE \\
+		\hline dateFrom & Początkowa data użytkowania zasobu & date & NOT NULL \\ 
+		\hline dateTo & Końcowa data użytkowania zasobu & date & \\ 
+		\hline 
+	\end{tabular} 
+	\caption{Tabela ResourceUsers}
 	\label{TAB:Resource}
 \end{table}
 
